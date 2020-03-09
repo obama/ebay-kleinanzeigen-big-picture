@@ -1,9 +1,9 @@
-var activeImg = document.querySelector('.ad-image-on img');
-var wrapper = document.querySelector('.ad-gallery-horizontal--imagecontainer');
+var activeImg = document.querySelector('.current #viewad-image');
+var wrapper = document.querySelector('.galleryimage-large');
 let bigImage = new Image();
 if (wrapper !== null) {
     wrapper.addEventListener('mouseenter', (e) => {
-        activeImg = document.querySelector('.ad-image-on img');
+        activeImg = document.querySelector('.current #viewad-image');
         activeImg.style.display = 'none';
         // replace URL with higher resolution url
         let imgUrl = activeImg.src.split('$');
@@ -19,9 +19,14 @@ if (wrapper !== null) {
         wrapper.style.backgroundImage = '';
     });
     wrapper.addEventListener('mousemove', (e) => {
-        let mX = e.layerX / wrapper.clientWidth;
-        let mY = e.layerY / wrapper.clientHeight;
+        let r = wrapper.getBoundingClientRect();
+        let mX = (e.clientX - r.left) / wrapper.clientWidth;
+        let mY = (e.clientY - r.top) / wrapper.clientHeight;
         wrapper.style.backgroundPosition = `${-mX*(bigImage.width-wrapper.clientWidth)}px ${-mY*(bigImage.height-wrapper.clientHeight)}px`;
+    });
+    wrapper.addEventListener('click', (e) => {
+        wrapper.dispatchEvent(new Event('mouseleave'));
+        wrapper.dispatchEvent(new Event('mouseenter'));
     });
 }
 else {
