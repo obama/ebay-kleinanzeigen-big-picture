@@ -3,7 +3,7 @@
 
   "name": "ebay kleinanzeigen big picture",
   "description": "Zoom das Bild sobald man mit der Maus über die kleine Vorschau fährt.",
-  "version": "0.2",
+  "version": "0.3",
   "author": "Putin",
   "icons": {
 	   "152": "icon.svg"

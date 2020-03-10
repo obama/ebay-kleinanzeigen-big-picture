@@ -13,6 +13,8 @@ if (wrapper !== null) {
         }
         wrapper.style.backgroundImage = `url("${imgUrl}")`;
         wrapper.style.backgroundSize = 'auto auto';
+        // remove annoying overlay
+        document.querySelector('.current .galleryimage-large--cover').style.backgroundImage = '';
     });
     wrapper.addEventListener('mouseleave', (e) => {
         activeImg.style.display = 'inline';
