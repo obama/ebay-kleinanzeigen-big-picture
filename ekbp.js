@@ -4,7 +4,7 @@ let bigImage = new Image();
 if (wrapper !== null) {
     wrapper.addEventListener('mouseenter', (e) => {
         activeImg = document.querySelector('.current #viewad-image');
-        activeImg.style.display = 'none';
+        activeImg.parentElement.style.display = 'none';
         // replace URL with higher resolution url
         let imgUrl = activeImg.src.split('$');
         imgUrl = imgUrl.slice(0, imgUrl.length-1).concat(['_57.JPG']).join('$');
@@ -15,10 +15,16 @@ if (wrapper !== null) {
         wrapper.style.backgroundSize = 'auto auto';
         // remove annoying overlay
         document.querySelector('.current .galleryimage-large--cover').style.backgroundImage = '';
+        document.querySelectorAll('.galleryimage-element').forEach(e => {
+            e.style.visibility = 'hidden';
+        });
     });
     wrapper.addEventListener('mouseleave', (e) => {
-        activeImg.style.display = 'inline';
+        activeImg.parentElement.style.display = 'inline';
         wrapper.style.backgroundImage = '';
+        document.querySelectorAll('.galleryimage-element').forEach(e => {
+            e.style.visibility = 'visible';
+        });
     });
     wrapper.addEventListener('mousemove', (e) => {
         let r = wrapper.getBoundingClientRect();
