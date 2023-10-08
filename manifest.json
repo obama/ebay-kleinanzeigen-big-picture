@@ -17,7 +17,7 @@
   "content_scripts": [
     {
       "matches": [
-         "*://*.ebay-kleinanzeigen.de/*"
+         "*://*.kleinanzeigen.de/*"
       ],
       "js":  ["ekbp.js"],
       "run_at": "document_end",
@@ -25,6 +25,6 @@
     }
   ],
   "permissions": [
-    "*://*.ebay-kleinanzeigen.de/*"
+    "*://*.kleinanzeigen.de/*"
   ]
 }
