@@ -3,7 +3,7 @@
 
   "name": "kleinanzeigen.de big picture",
   "description": "Zoom das Bild sobald man mit der Maus über die kleine Vorschau fährt.",
-  "version": "0.4",
+  "version": "0.5",
   "author": "Putin",
   "icons": {
 	   "152": "icon.svg"
